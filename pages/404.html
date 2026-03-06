@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 &mdash; Scene Not Found | Marcus Holloway</title>
+  <meta name="description"
+    content="The page you're looking for doesn't exist. Return to Marcus Holloway's documentary filmmaker portfolio.">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+
+<body>
+
+  <a href="#main-content" class="sr-only skip-link">Skip to main content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo">Marcus Holloway</a>
+      <ul class="nav-links">
+        <li class="nav-item nav-item--dropdown">
+          <a href="index.html">Home</a>
+          <ul class="nav-dropdown">
+            <li><a href="index.html">Home 1</a></li>
+            <li><a href="home-2.html">Home 2</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+        
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="fas fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home 1</a>
+    <a href="home-2.html">Home 2</a>
+    <a href="about.html">About</a>
+    
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ===================================================
+         SECTION: 404 ERROR PAGE
+         =================================================== -->
+    <div class="error-page">
+      <div class="error-page__icon" aria-hidden="true">
+        <i class="fas fa-film"></i>
+      </div>
+      <div class="error-page__code" aria-hidden="true">404</div>
+      <h2>Scene Not Found</h2>
+      <p>Looks like this reel got lost in the editing room.</p>
+      <div class="error-page__actions">
+        <a href="index.html" class="btn btn-primary">
+          <i class="fas fa-arrow-left"></i> Back to Home
+        </a>
+        <a href="services.html" class="btn btn-secondary">
+          View Services
+        </a>
+      </div>
+    </div>
+
+    <!-- Film strip decoration -->
+    <div class="film-strip" style="position: fixed; bottom: 0; left: 0; right: 0;"></div>
+
+  </main>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
+
+
+

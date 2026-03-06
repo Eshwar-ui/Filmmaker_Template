@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon &mdash; Marcus Holloway | New Film</title>
+  <meta name="description"
+    content="A new documentary film by Marcus Holloway is in post-production. Stay tuned for the premiere.">
+  <meta name="robots" content="noindex, follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+
+<body>
+
+  <a href="#main-content" class="sr-only skip-link">Skip to main content</a>
+
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo">Marcus Holloway</a>
+      <ul class="nav-links">
+        <li class="nav-item nav-item--dropdown">
+          <a href="index.html">Home</a>
+          <ul class="nav-dropdown">
+            <li><a href="index.html">Home 1</a></li>
+            <li><a href="home-2.html">Home 2</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About</a></li>
+        
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle dark/light mode">
+          <i class="fas fa-sun"></i>
+        </button>
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="index.html">Home 1</a>
+    <a href="home-2.html">Home 2</a>
+    <a href="about.html">About</a>
+    
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <main id="main-content">
+
+    <!-- ===================================================
+         SECTION: COMING SOON
+         =================================================== -->
+    <div class="coming-soon">
+
+      <!-- Grain overlay -->
+      <div class="hero-grain"></div>
+
+      <!-- TODO: Replace with your name -->
+      <div class="coming-soon__logo">Marcus Holloway</div>
+
+      <h1>Something New Is Developing</h1>
+      <p>A new film is in post-production. Stay tuned.</p>
+
+      <!-- Countdown Timer -->
+      <!-- TODO: Set your target date in main.js (LAUNCH_DATE variable) -->
+      <div class="countdown" id="countdown">
+        <div class="countdown__box">
+          <div class="countdown__number" data-days>0</div>
+          <div class="countdown__label">Days</div>
+        </div>
+        <div class="countdown__box">
+          <div class="countdown__number" data-hours>0</div>
+          <div class="countdown__label">Hours</div>
+        </div>
+        <div class="countdown__box">
+          <div class="countdown__number" data-minutes>0</div>
+          <div class="countdown__label">Minutes</div>
+        </div>
+        <div class="countdown__box">
+          <div class="countdown__number" data-seconds>0</div>
+          <div class="countdown__label">Seconds</div>
+        </div>
+      </div>
+
+      <!-- Email Capture -->
+      <!-- TODO: Connect to your Mailchimp/ConvertKit list -->
+      <div class="email-capture">
+        <label for="notify-email" class="sr-only">Email address for notifications</label>
+        <input type="email" id="notify-email" placeholder="Get notified &mdash; enter your email">
+        <button class="btn btn-primary btn-sm">Subscribe</button>
+      </div>
+
+      <!-- Social Links -->
+      <div class="social-links">
+        <!-- TODO: Replace with your social media URLs -->
+        <a href="https://instagram.com/marcus.holloway.films" target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://vimeo.com/marcusholloway" target="_blank" rel="noopener noreferrer" aria-label="Vimeo"><i
+            class="fab fa-vimeo-v"></i></a>
+        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X"><i
+            class="fab fa-x-twitter"></i></a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
+            class="fab fa-linkedin-in"></i></a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+
+</html>
+
+
+

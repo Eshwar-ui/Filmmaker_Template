@@ -1,0 +1,126 @@
+/* ==============================================
+   RTL (Right-to-Left) LAYOUT ADJUSTMENTS
+   Apply by setting dir="rtl" on <html> element
+   ============================================== */
+
+[dir="rtl"] .nav-links {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .hero-content {
+  text-align: right;
+}
+
+[dir="rtl"] .hero-ctas {
+  justify-content: flex-end;
+}
+
+[dir="rtl"] .film-card__info {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-col {
+  text-align: right;
+}
+
+[dir="rtl"] .timeline-item {
+  padding-left: 0;
+  padding-right: var(--space-lg);
+}
+
+[dir="rtl"] .timeline::before {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .timeline-item::before {
+  left: auto;
+  right: -5px;
+}
+
+[dir="rtl"] .btn-icon {
+  margin-left: 0;
+  margin-right: var(--space-xs);
+}
+
+[dir="rtl"] .contact-info__item {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .contact-info__item i {
+  text-align: center;
+}
+
+[dir="rtl"] .testimonial {
+  padding-left: 0;
+  padding-right: var(--space-lg);
+  text-align: right;
+}
+
+[dir="rtl"] .testimonial::before {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .testimonial:nth-child(even) {
+  padding-right: 0;
+  padding-left: var(--space-lg);
+  text-align: left;
+}
+
+[dir="rtl"] .testimonial:nth-child(even)::before {
+  right: auto;
+  left: 0;
+}
+
+[dir="rtl"] .screening-card {
+  border-left: none;
+  border-right: 3px solid var(--color-primary);
+}
+
+[dir="rtl"] .featured-film__meta {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .social-links {
+  justify-content: flex-end;
+}
+
+[dir="rtl"] .nav-logo {
+  order: 2;
+}
+
+[dir="rtl"] .nav-actions {
+  order: 0;
+}
+
+@media (min-width: 1024px) {
+  [dir="rtl"] .timeline::before {
+    left: auto;
+    right: 50%;
+  }
+
+  [dir="rtl"] .timeline-item:nth-child(odd) {
+    text-align: left;
+    padding-right: 0;
+    padding-left: var(--space-lg);
+  }
+
+  [dir="rtl"] .timeline-item:nth-child(odd)::before {
+    right: auto;
+    left: -5px;
+  }
+
+  [dir="rtl"] .timeline-item:nth-child(even) {
+    margin-left: 0;
+    margin-right: 50%;
+    text-align: right;
+    padding-left: 0;
+    padding-right: var(--space-lg);
+  }
+
+  [dir="rtl"] .timeline-item:nth-child(even)::before {
+    left: auto;
+    right: -5px;
+  }
+}
