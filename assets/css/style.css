@@ -7,20 +7,10 @@
    CSS CUSTOM PROPERTIES
    ============================================== */
 :root {
-  /* Colors */
-  --color-bg: #050505;
-  --color-surface: #0d0d0d;
-  --color-surface-alt: #121212;
-  --color-gold: #E8C547;
-  --color-gold-light: #f1d683;
-  --color-gold-dark: #c4a230;
-  --color-bone: #F0EDE8;
-  --color-text: #F0EDE8;
-  --color-text-muted: rgba(240, 237, 232, 0.6);
-  --color-border: rgba(240, 237, 232, 0.1);
-  --color-overlay: rgba(0,0,0,0.75);
-  --color-primary: var(--color-gold);
-  --color-primary-dark: var(--color-gold-dark);
+  /* ==============================================
+     LAYOUT & TYPOGRAPHY VARIABLES
+     (Color variables are defined in theme files)
+     ============================================== */
 
   /* Typography */
   --font-display: 'Playfair Display', Georgia, serif;
@@ -46,11 +36,12 @@
   --transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 600ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Shadows */
+  /* Shadows (Standardised) */
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
   --shadow-md: 0 4px 24px rgba(0,0,0,0.6);
   --shadow-lg: 0 8px 48px rgba(0,0,0,0.8);
 }
+
 
 /* ==============================================
    RESET & BASE STYLES
@@ -163,6 +154,187 @@ ul, ol {
 /* Keep anchor targets visible below fixed navbar */
 #tools {
   scroll-margin-top: 110px;
+}
+
+/* ==============================================
+   COMPONENT: Navbar Redesign
+   ============================================== */
+.glass-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 18px 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(10, 10, 10, 0.98) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(240, 237, 232, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Mobile actions gap fix */
+.glass-header .flex.items-center.gap-6 {
+    gap: clamp(1rem, 4vw, 1.5rem);
+}
+
+/* Navbar element colors — bright white for maximum readability */
+.glass-header .nav-link,
+.glass-header .nav-logo,
+.glass-header .text-2xl,
+.glass-header #theme-toggle,
+.glass-header #rtl-toggle,
+.glass-header #mobile-toggle,
+.glass-header #mobile-close,
+.glass-header a,
+.glass-header button,
+.glass-header span {
+    color: #f5f5f5 !important;
+    transition: color 0.3s ease;
+}
+
+/* Hover & Active States */
+.glass-header .nav-link:hover,
+.glass-header .nav-link.active {
+    color: var(--color-gold) !important;
+}
+
+#theme-toggle:hover,
+#rtl-toggle:hover,
+#mobile-toggle:hover {
+    color: var(--color-gold) !important;
+}
+
+/* Scrolled State */
+.glass-header.scrolled {
+  padding: 12px 0;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Dropdown Menus (always dark bg for consistency) */
+.glass-header .group-hover\:visible,
+.glass-header .group > div[class*="absolute"] {
+    background: rgba(20, 20, 20, 0.98) !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px);
+}
+
+.glass-header .group-hover\:visible a,
+.glass-header .group > div[class*="absolute"] a {
+    color: rgba(245, 245, 245, 0.7) !important;
+}
+
+.glass-header .group-hover\:visible a:hover,
+.glass-header .group > div[class*="absolute"] a:hover {
+    color: var(--color-gold) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Underline animation */
+.glass-header .nav-link {
+  position: relative;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 4px 0;
+}
+
+.glass-header .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-gold);
+  transition: width 0.3s ease;
+}
+
+.glass-header .nav-link:hover::after,
+.glass-header .nav-link.active::after {
+  width: 100%;
+}
+
+/* ==============================================
+   MODULE: Mobile Menu (Always Dark)
+   ============================================== */
+#mobile-menu {
+    background: #0a0a0a !important;
+}
+
+#mobile-menu a {
+    color: #f5f5f5 !important;
+    transition: color 0.3s ease;
+}
+
+#mobile-menu a:hover,
+#mobile-menu a.text-gold {
+    color: var(--color-gold) !important;
+}
+
+#mobile-close {
+    color: rgba(245, 245, 245, 0.6) !important;
+    transition: color 0.3s ease;
+}
+
+#mobile-close:hover {
+    color: var(--color-gold) !important;
+}
+
+/* ==============================================
+   MODULE: RTL Overrides
+   ============================================== */
+[dir="rtl"] {
+    text-align: right;
+}
+
+/* Mirror icons that are directional */
+[dir="rtl"] i.fas.fa-arrow-right,
+[dir="rtl"] i.fas.fa-arrow-left,
+[dir="rtl"] i.fas.fa-chevron-right,
+[dir="rtl"] i.fas.fa-chevron-left,
+[dir="rtl"] i.fas.fa-play,
+[dir="rtl"] .fa-arrow-right,
+[dir="rtl"] .fa-long-arrow-alt-right {
+    transform: scaleX(-1);
+    display: inline-block;
+}
+
+/* Standardize punctuation for English text in RTL */
+[dir="rtl"] body {
+    unicode-bidi: plaintext;
+    text-align: right;
+}
+
+/* Flip mobile menu close button */
+[dir="rtl"] #mobile-close {
+    right: auto !important;
+    left: 2rem !important;
+}
+
+/* Flip absolute positioned elements (badges, labels) */
+[dir="rtl"] .absolute.left-4 {
+    left: auto !important;
+    right: 1rem !important;
+}
+
+[dir="rtl"] .absolute.right-4 {
+    right: auto !important;
+    left: 1rem !important;
+}
+
+/* Ensure navbar transitions properly */
+.glass-header .nav-logo {
+    transition: transform 0.3s ease;
+}
+
+[dir="rtl"] .glass-header .nav-logo {
+    text-align: right;
+}
+
+[dir="rtl"] .glass-header .flex.items-center.gap-6 {
+    flex-direction: row-reverse;
 }
 
 /* ==============================================
@@ -312,83 +484,7 @@ ul, ol {
 /* ==============================================
    COMPONENT: Navigation
    ============================================== */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: var(--space-sm) 0;
-  transition: background-color var(--transition-base), padding var(--transition-base), box-shadow var(--transition-base), backdrop-filter var(--transition-base);
-}
-
-.navbar.scrolled {
-  background-color: var(--color-nav-scrolled-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 1px 0 rgba(var(--color-accent-rgb), 0.1);
-  padding: var(--space-xs) 0;
-}
-
-.navbar .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-logo {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--color-text);
-  text-decoration: none;
-  transition: color var(--transition-base);
-}
-
-.nav-logo:hover {
-  color: var(--color-primary);
-}
-
-.nav-links {
-  display: none;
-  align-items: center;
-  gap: var(--space-md);
-}
-
-.nav-item {
-  position: relative;
-}
-
-.nav-links a {
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
-  font-weight: 400;
-  text-decoration: none;
-  transition: color var(--transition-base);
-  position: relative;
-  padding: 4px 0;
-}
-
-.nav-links a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--color-primary);
-  transition: width var(--transition-base);
-}
-
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--color-text);
-}
-
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  width: 100%;
-}
+/* Redundant .navbar block removed - consolidated into .glass-header */
 
 .nav-dropdown {
   position: absolute;
@@ -577,6 +673,10 @@ ul, ol {
     linear-gradient(85deg, var(--color-overlay-strong) 0%, var(--color-overlay-soft) 58%, var(--color-overlay-edge) 100%),
     var(--color-overlay);
   z-index: 1;
+}
+
+body.light-mode .hero-overlay {
+  background: rgba(252, 250, 247, 0.4); /* Subtle light wash over hero */
 }
 
 .hero-grain {

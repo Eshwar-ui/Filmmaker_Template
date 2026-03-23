@@ -1,6 +1,18 @@
 /* ==============================================
-   TAILWIND CONFIGURATION
+   TAILWIND CONFIGURATION & THEME INIT
    ============================================== */
+
+// Immediate Theme Initialization (Prevent Flash)
+(function() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+        // Body isn't ready yet, so we'll wait for DOMContentLoaded to add .light-mode if needed
+        // but removing .dark from <html> handles Tailwind immediately.
+    } else if (theme === 'dark' || !theme) {
+        document.documentElement.classList.add('dark');
+    }
+})();
 
 tailwind.config = {
     darkMode: 'class',
@@ -24,3 +36,4 @@ tailwind.config = {
         }
     }
 }
+

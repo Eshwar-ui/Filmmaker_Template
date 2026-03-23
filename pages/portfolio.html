@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" class="dark scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +18,7 @@
     
     <!-- External Styles -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/theme-light.css">
     
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -27,11 +27,14 @@
 <body class="bg-bone text-dark dark:bg-dark dark:text-bone font-sans antialiased selection:bg-gold selection:text-dark overflow-x-hidden">
     <div class="grain-overlay"></div>
 
+    <!-- Skip Navigation -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-gold focus:text-dark group-hover:text-dark">Skip to content</a>
+
     <!-- Navigation -->
-    <header class="glass-header dark" id="navbar">
+    <header class="glass-header" id="navbar">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="index.html" class="text-2xl font-serif font-black tracking-tighter text-dark dark:text-bone hover:text-gold transition-colors">
-                M/H <span class="hidden sm:inline ml-2 text-sm font-sans font-normal tracking-widest uppercase text-dark dark:text-bone/40">Filmmaking</span>
+            <a href="index.html" class="text-2xl font-serif font-black tracking-tighter hover:text-gold transition-colors">
+                M/H <span class="hidden sm:inline ml-2 text-sm font-sans font-normal tracking-widest uppercase opacity-60">Filmmaking</span>
             </a>
 
             <!-- Desktop Nav -->
@@ -39,8 +42,8 @@
                 <div class="relative group">
                     <button class="nav-link flex items-center gap-2">Home <i class="fas fa-chevron-down text-[10px]"></i></button>
                     <div class="absolute top-full left-0 mt-4 w-48 bg-white dark:bg-surface border border-dark/10 dark:border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 p-2 shadow-2xl rounded-lg overflow-hidden">
-                        <a href="index.html" class="block px-4 py-2 text-xs uppercase tracking-widest text-dark dark:text-bone/60 hover:text-gold hover:bg-dark/5 dark:hover:bg-white/5 transition-colors">Cinematic Home</a>
-                        <a href="home-2.html" class="block px-4 py-2 text-xs uppercase tracking-widest text-dark dark:text-bone/60 hover:text-gold hover:bg-dark/5 dark:hover:bg-white/5 transition-colors">Editorial Home</a>
+                        <a href="index.html" class="block px-4 py-2 text-xs uppercase tracking-widest hover:text-gold hover:bg-dark/5 dark:hover:bg-white/5 transition-colors">Cinematic Home</a>
+                        <a href="home-2.html" class="block px-4 py-2 text-xs uppercase tracking-widest hover:text-gold hover:bg-dark/5 dark:hover:bg-white/5 transition-colors">Editorial Home</a>
                     </div>
                 </div>
                 <a href="about.html" class="nav-link">About</a>
@@ -54,13 +57,13 @@
             <!-- Actions -->
             <div class="flex items-center gap-6">
                 <!-- RTL Toggle -->
-                <button id="rtl-toggle" class="text-dark dark:text-bone/40 hover:text-gold transition-colors text-sm font-mono" title="Toggle RTL">RTL</button>
+                <button id="rtl-toggle" class="hover:text-gold transition-colors text-sm font-mono" title="Toggle RTL">RTL</button>
                 <!-- Dark Mode -->
-                <button id="theme-toggle" class="text-dark dark:text-bone/40 hover:text-gold transition-colors w-10 h-10 flex items-center justify-center border border-dark/10 dark:border-white/10 rounded-full hover:bg-yellow-500/10">
+                <button id="theme-toggle" class="hover:text-gold transition-colors w-10 h-10 flex items-center justify-center border border-dark/10 dark:border-white/10 rounded-full hover:bg-yellow-500/10">
                     <i class="fas fa-moon"></i>
                 </button>
                 <!-- Mobile Menu Toggle -->
-                <button id="mobile-toggle" class="lg:hidden text-dark dark:text-bone/80 hover:text-gold text-2xl">
+                <button id="mobile-toggle" class="lg:hidden hover:text-gold text-2xl">
                     <i class="fas fa-bars-staggered"></i>
                 </button>
             </div>
@@ -68,18 +71,18 @@
     </header>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-bone dark:bg-dark flex flex-col items-center justify-center translate-x-full transition-transform duration-700 ease-in-out">
-        <button id="mobile-close" class="absolute top-8 right-8 text-3xl text-dark dark:text-bone/40 hover:text-gold">
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-[#0a0a0a] flex flex-col items-center justify-center translate-x-full transition-transform duration-700 ease-in-out">
+        <button id="mobile-close" class="absolute top-8 right-8 text-3xl text-white/60 hover:text-gold transition-colors">
             <i class="fas fa-times"></i>
         </button>
         <div class="flex flex-col items-center space-y-8 text-center">
-            <a href="index.html" class="text-4xl font-serif text-dark dark:text-bone/60 hover:text-gold">Home</a>
-            <a href="about.html" class="text-4xl font-serif text-dark dark:text-bone/60 hover:text-gold">About</a>
-            <a href="portfolio.html" class="text-4xl font-serif text-gold">Portfolio</a>
-            <a href="gallery.html" class="text-4xl font-serif text-dark dark:text-bone/60 hover:text-gold">Gallery</a>
-            <a href="tools.html" class="text-4xl font-serif text-dark dark:text-bone/60 hover:text-gold">Tools</a>
-            <a href="services.html" class="text-4xl font-serif text-dark dark:text-bone/60 hover:text-gold">Services</a>
-            <a href="contact.html" class="text-4xl font-serif text-dark dark:text-bone/60 hover:text-gold">Contact</a>
+            <a href="index.html" class="text-4xl font-serif hover:text-gold">Home</a>
+            <a href="about.html" class="text-4xl font-serif hover:text-gold">About</a>
+            <a href="portfolio.html" class="text-4xl font-serif hover:text-gold">Portfolio</a>
+            <a href="gallery.html" class="text-4xl font-serif hover:text-gold">Gallery</a>
+            <a href="tools.html" class="text-4xl font-serif hover:text-gold">Tools</a>
+            <a href="services.html" class="text-4xl font-serif hover:text-gold">Services</a>
+            <a href="contact.html" class="text-4xl font-serif hover:text-gold">Contact</a>
         </div>
     </div>
 
@@ -106,7 +109,7 @@
                 <!-- Project 1 -->
                 <div class="project-card group reveal-up" data-category="features">
                     <div class="aspect-video bg-white dark:bg-surface overflow-hidden mb-8 relative shadow-2xl">
-                         <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=1200&q=80" alt="Work" class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-110 transition-all duration-1000 scale-100 group-hover:scale-110">
+                         <img src="../assets/images/ocean-aerial.jpg" alt="Work" class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-110 transition-all duration-1000 scale-100 group-hover:scale-110">
                     </div>
                     <div class="flex justify-between items-start">
                         <div>
@@ -123,7 +126,7 @@
                 <!-- Project 2 -->
                 <div class="project-card group md:translate-y-32 reveal-up" data-category="shorts">
                     <div class="aspect-video bg-white dark:bg-surface overflow-hidden mb-8 relative shadow-2xl">
-                         <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=1200&q=80" alt="Work" class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-110 transition-all duration-1000 scale-100 group-hover:scale-110">
+                         <img src="../assets/images/concert-crowd.jpg" alt="Work" class="w-full h-full object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-110 transition-all duration-1000 scale-100 group-hover:scale-110">
                     </div>
                     <div class="flex justify-between items-start">
                         <div>
@@ -140,7 +143,7 @@
                 <!-- Project 3 -->
                 <div class="project-card group reveal-up" data-category="features">
                     <div class="aspect-video bg-white dark:bg-surface overflow-hidden mb-8 relative shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1200&q=80" alt="Work" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
+                        <img src="../assets/images/library-archive.jpg" alt="Work" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
                     </div>
                     <div class="flex justify-between items-start">
                         <div>
@@ -157,7 +160,7 @@
                  <!-- Project 4 -->
                  <div class="project-card group md:translate-y-32 reveal-up" data-category="commercial">
                     <div class="aspect-video bg-white dark:bg-surface overflow-hidden mb-8 relative shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1485001564903-59e9a48f97cb?w=1200&q=80" alt="Work" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
+                        <img src="../assets/images/cinematic-backdrop.jpg" alt="Work" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000">
                     </div>
                     <div class="flex justify-between items-start">
                         <div>
@@ -175,10 +178,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-bone dark:bg-dark/80 backdrop-blur-xl pt-32 pb-12 border-t border-dark/5 dark:border-white/5 snap-start">
+    <!-- Footer -->
+    <footer class="bg-bone dark:bg-dark/80 backdrop-blur-xl pt-32 pb-12 border-t border-dark/5 dark:border-white/5 reveal-up">
         <div class="container mx-auto px-6">
             <!-- Call to Action -->
-            <div class="flex flex-col md:flex-row items-end justify-between gap-12 mb-32 reveal-up">
+            <div class="flex flex-col md:flex-row items-end justify-between gap-12 mb-32">
                 <div class="max-w-2xl">
                     <p class="font-mono text-gold text-xs uppercase tracking-[0.4em] mb-8">Next Project</p>
                     <h2 class="text-6xl md:text-8xl font-serif italic font-black leading-tight text-dark dark:text-bone">Let's build a vision <br> together.</h2>
@@ -189,38 +193,69 @@
                 </a>
             </div>
 
-            <!-- Footer Main -->
-            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-16 mb-24 border-t border-dark/5 dark:border-white/5 pt-24 reveal-up">
+            <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-16 mb-24 pt-24 border-t border-dark/5 dark:border-white/5">
                 <div class="col-span-1 md:col-span-2 lg:col-span-2 space-y-8">
                     <a href="index.html" class="text-3xl font-serif font-black tracking-tighter text-dark dark:text-bone hover:text-gold transition-colors">M/H</a>
-                    <p class="text-dark dark:text-bone/40 max-w-xs leading-relaxed font-light text-sm italic">
+                    <p class="text-dark dark:text-bone/40 max-w-xs leading-relaxed font-light text-base italic">
                         Capturing the raw essence of human stories across the globe.
                     </p>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 border border-dark/10 dark:border-white/10 flex items-center justify-center text-dark dark:text-bone/40 hover:text-gold hover:border-gold/50 transition-all rounded-full"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 border border-dark/10 dark:border-white/10 flex items-center justify-center text-dark dark:text-bone/40 hover:text-gold hover:border-gold/50 transition-all rounded-full"><i class="fab fa-vimeo-v"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank" class="w-10 h-10 border border-dark/10 dark:border-white/10 flex items-center justify-center text-dark dark:text-bone/40 hover:text-gold hover:border-gold/50 transition-all rounded-full"><i class="fab fa-instagram"></i></a>
+                        <a href="https://vimeo.com/" target="_blank" class="w-10 h-10 border border-dark/10 dark:border-white/10 flex items-center justify-center text-dark dark:text-bone/40 hover:text-gold hover:border-gold/50 transition-all rounded-full"><i class="fab fa-vimeo-v"></i></a>
+                        <a href="https://www.imdb.com/" target="_blank" class="w-10 h-10 border border-dark/10 dark:border-white/10 flex items-center justify-center text-dark dark:text-bone/40 hover:text-gold hover:border-gold/50 transition-all rounded-full"><i class="fab fa-imdb"></i></a>
                     </div>
                 </div>
+
+                <!-- Exploration -->
                 <div class="lg:col-start-4">
-                    <h4 class="text-[10px] uppercase tracking-[0.3em] text-gold font-bold mb-10 font-mono">Exploration</h4>
-                    <ul class="space-y-4 text-xs font-mono text-dark dark:text-bone/40">
-                        <li><a href="index.html" class="hover:text-gold transition-colors block">Home</a></li>
-                        <li><a href="blog.html" class="hover:text-gold transition-colors block">Blog</a></li>
+                    <h4 class="text-xs uppercase tracking-[0.3em] text-gold font-bold mb-10 font-mono">Exploration</h4>
+                    <ul class="space-y-4 text-sm font-mono text-dark dark:text-bone/40">
+                        <li><a href="index.html" class="hover:text-gold transition-colors block">Home Version 1</a></li>
+                        <li><a href="home-2.html" class="hover:text-gold transition-colors block">Home Version 2</a></li>
+                        <li><a href="portfolio.html" class="hover:text-gold transition-colors block active font-bold text-gold">Portfolio Archive</a></li>
+                        <li><a href="gallery.html" class="hover:text-gold transition-colors block">Behind Scenes</a></li>
                     </ul>
                 </div>
+
+                <!-- Studio -->
                 <div>
-                    <h4 class="text-[10px] uppercase tracking-[0.3em] text-gold font-bold mb-10 font-mono">Studio</h4>
-                    <ul class="space-y-4 text-xs font-mono text-dark dark:text-bone/40">
+                    <h4 class="text-xs uppercase tracking-[0.3em] text-gold font-bold mb-10 font-mono">Studio</h4>
+                    <ul class="space-y-4 text-sm font-mono text-dark dark:text-bone/40">
                         <li><a href="about.html" class="hover:text-gold transition-colors block">The Story</a></li>
+                        <li><a href="services.html" class="hover:text-gold transition-colors block">Services</a></li>
+                        <li><a href="tools.html" class="hover:text-gold transition-colors block">Equipment</a></li>
                         <li><a href="contact.html" class="hover:text-gold transition-colors block">Get in Touch</a></li>
                     </ul>
                 </div>
+
+                <!-- Connect -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-[0.3em] text-gold font-bold mb-10 font-mono">Connect</h4>
+                    <div class="space-y-6">
+                        <p class="text-sm font-mono text-dark dark:text-bone/40 leading-loose">
+                            Brooklyn, New York<br>
+                            contact@marcholloway.com
+                        </p>
+                        <form class="relative">
+                            <input type="email" placeholder="Newsletter" class="w-full bg-dark/5 dark:bg-white/5 border border-dark/10 dark:border-white/10 px-4 py-3 text-xs font-mono focus:outline-none focus:border-gold transition-all text-dark dark:text-bone">
+                            <button class="absolute right-2 top-1/2 -translate-y-1/2 text-gold hover:text-dark dark:text-bone transition-colors"><i class="fas fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div class="flex flex-col md:flex-row items-center justify-between pt-12 border-t border-dark/5 dark:border-white/5 gap-8 reveal-up">
-                <p class="text-dark dark:text-bone/20 font-mono text-[8px] uppercase tracking-[0.5em]">&copy; 2026 Marcus Holloway.</p>
-                <a href="#navbar" class="group flex items-center gap-4 text-dark dark:text-bone/20 hover:text-gold font-mono text-[8px] uppercase tracking-[0.5em] transition-all">
-                    <span>Back to Top</span>
-                    <i class="fas fa-arrow-up text-[10px]"></i>
+
+            <!-- Bottom Bar -->
+            <div class="flex flex-col md:flex-row items-center justify-between pt-12 border-t border-dark/5 dark:border-white/5 gap-8">
+                <div class="flex flex-wrap gap-8 justify-center md:justify-start">
+                    <p class="text-dark dark:text-bone/20 font-mono text-xs uppercase tracking-[0.5em]">&copy; 2026 Marcus Holloway. Crafted with precision.</p>
+                    <a href="#" class="text-dark dark:text-bone/20 hover:text-gold font-mono text-xs uppercase tracking-[0.5em] transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-dark dark:text-bone/20 hover:text-gold font-mono text-xs uppercase tracking-[0.5em] transition-colors">Terms of Vision</a>
+                </div>
+                <a href="#navbar" class="group flex items-center gap-4 text-dark dark:text-bone/20 hover:text-gold font-mono text-xs uppercase tracking-[0.5em] transition-all">
+                    <span>Back to Premiere</span>
+                    <div class="w-8 h-8 rounded-full border border-dark/5 dark:border-white/5 flex items-center justify-center group-hover:border-gold/50 transition-all text-dark dark:text-bone/20 group-hover:text-gold">
+                        <i class="fas fa-arrow-up text-[10px]"></i>
+                    </div>
                 </a>
             </div>
         </div>

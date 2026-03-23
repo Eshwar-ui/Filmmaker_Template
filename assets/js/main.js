@@ -12,19 +12,19 @@
  * Adds 'scrolled' class to navbar when page is scrolled past 50px.
  */
 function initNavbar() {
-  const navbar = document.querySelector('.navbar');
-  if (!navbar) return;
+    const nav = document.getElementById('navbar') || document.querySelector('.navbar');
+    if (!nav) return;
 
-  const handleScroll = () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  };
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    };
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
 }
 
 /* ==============================================
@@ -36,34 +36,38 @@ function initNavbar() {
  * Toggles the mobile overlay menu and prevents body scroll when open.
  */
 function initMobileMenu() {
-  const hamburger = document.querySelector('.hamburger');
-  const mobileMenu = document.querySelector('.mobile-menu');
-  if (!hamburger || !mobileMenu) return;
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const close = document.getElementById('mobile-close');
+  
+  if (!toggle || !menu || !close) return;
 
-  const toggleMenu = () => {
-    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
-    hamburger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-    mobileMenu.classList.toggle('open');
-    document.body.style.overflow = isOpen ? '' : 'hidden';
+  const openMenu = () => {
+    const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+    menu.classList.remove(isRTL ? '-translate-x-full' : 'translate-x-full');
+    menu.classList.add('translate-x-0');
+    document.body.style.overflow = 'hidden';
   };
 
-  hamburger.addEventListener('click', toggleMenu);
+  const closeMenu = () => {
+    const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
+    menu.classList.remove('translate-x-0');
+    menu.classList.add(isRTL ? '-translate-x-full' : 'translate-x-full');
+    document.body.style.overflow = '';
+  };
+
+  toggle.addEventListener('click', openMenu);
+  close.addEventListener('click', closeMenu);
 
   // Close menu when clicking a link
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.setAttribute('aria-expanded', 'false');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
-    });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
   });
 
   // Close on Escape key
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
-      hamburger.setAttribute('aria-expanded', 'false');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
+    if (e.key === 'Escape' && !menu.classList.contains('translate-x-full')) {
+      closeMenu();
     }
   });
 }
@@ -76,22 +80,73 @@ function initThemeToggle() {
     const toggle = document.getElementById('theme-toggle');
     if (!toggle) return;
 
-    const isLight = localStorage.getItem('theme') === 'light';
+    // Apply theme from localStorage OR document class
+    const isLight = localStorage.getItem('theme') === 'light' || (!localStorage.getItem('theme') && !document.documentElement.classList.contains('dark'));
     
+    const applyTheme = (toLight) => {
+        if (toLight) {
+            document.documentElement.classList.remove('dark');
+            document.body.classList.add('light-mode');
+            toggle.innerHTML = '<i class="fas fa-moon"></i>';
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.classList.add('dark');
+            document.body.classList.remove('light-mode');
+            toggle.innerHTML = '<i class="fas fa-sun"></i>';
+            localStorage.setItem('theme', 'dark');
+        }
+    };
+
     // Initialize
-    if (isLight) {
-        document.documentElement.classList.remove('dark');
-        toggle.innerHTML = '<i class="fas fa-moon"></i>';
-    } else {
-        document.documentElement.classList.add('dark');
-        toggle.innerHTML = '<i class="fas fa-sun"></i>';
-    }
+    applyTheme(isLight);
     
     toggle.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
-        const currentlyDark = document.documentElement.classList.contains('dark');
-        toggle.innerHTML = currentlyDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-        localStorage.setItem('theme', currentlyDark ? 'dark' : 'light');
+        const currentlyLight = document.body.classList.contains('light-mode');
+        applyTheme(!currentlyLight);
+        // Trigger scroll update for navbar theme
+        window.dispatchEvent(new Event('scroll'));
+    });
+}
+
+/**
+ * Toggles Right-to-Left (RTL) mode and persists preference.
+ * Updates the 'dir' attribute on <html> and adds/removes 'rtl' class on body.
+ */
+function initRTL() {
+    const toggle = document.getElementById('rtl-toggle');
+    if (!toggle) return;
+
+    const applyRTL = (isRTL) => {
+        if (isRTL) {
+            document.documentElement.setAttribute('dir', 'rtl');
+            document.body.classList.add('rtl');
+            localStorage.setItem('rtl', 'true');
+            // Update mobile menu default state if it exists
+            const menu = document.getElementById('mobile-menu');
+            if (menu && menu.classList.contains('translate-x-full')) {
+                menu.classList.remove('translate-x-full');
+                menu.classList.add('-translate-x-full');
+            }
+        } else {
+            document.documentElement.setAttribute('dir', 'ltr');
+            document.body.classList.remove('rtl');
+            localStorage.setItem('rtl', 'false');
+            // Update mobile menu default state if it exists
+            const menu = document.getElementById('mobile-menu');
+            if (menu && menu.classList.contains('-translate-x-full')) {
+                menu.classList.remove('-translate-x-full');
+                menu.classList.add('translate-x-full');
+            }
+        }
+    };
+
+    // Initialize from storage or default to LTR
+    const savedRTL = localStorage.getItem('rtl') === 'true';
+    applyRTL(savedRTL);
+
+    toggle.addEventListener('click', () => {
+        const currentRTL = document.documentElement.getAttribute('dir') === 'rtl';
+        applyRTL(!currentRTL);
     });
 }
 
@@ -453,7 +508,7 @@ function initScrollReveal() {
  */
 function initActiveNav() {
   const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.nav-links a, .mobile-menu a');
+  const navLinks = document.querySelectorAll('.nav-link, #mobile-menu a');
   const isHomeVariant = currentPage === 'index.html' || currentPage === 'home-2.html';
 
   navLinks.forEach(link => {
@@ -461,12 +516,10 @@ function initActiveNav() {
     const [rawPage] = href.split('#');
     const linkPage = rawPage || 'index.html';
 
-    if (linkPage === currentPage) {
+    if (linkPage === currentPage || (isHomeVariant && linkPage === 'index.html')) {
       link.classList.add('active');
-    }
-
-    if (isHomeVariant && href === 'index.html' && link.textContent.trim() === 'Home') {
-      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
     }
   });
 }
@@ -530,6 +583,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNavbar();
     initMobileMenu();
     initThemeToggle();
+    initRTL();
     initGSAP();
     initLightbox();
     initScrollReveal();
