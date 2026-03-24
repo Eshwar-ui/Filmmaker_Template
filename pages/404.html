@@ -1,4 +1,4 @@
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,52 +18,47 @@
     
     <!-- External Styles -->
     <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/theme-light.css">
     
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body class="bg-bone text-dark dark:bg-dark dark:text-bone font-sans antialiased selection:bg-gold selection:text-dark overflow-x-hidden">
+<body class="bg-dark text-white font-sans antialiased selection:bg-gold selection:text-dark overflow-x-hidden">
     <div class="grain-overlay"></div>
 
     <!-- Skip Navigation -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-gold focus:text-dark group-hover:text-dark">Skip to content</a>
 
     <!-- Navigation -->
-    <header class="glass-header" id="navbar">
+    <header class="glass-header dark" id="navbar">
         <div class="container mx-auto px-6 flex items-center justify-between">
-            <a href="index.html" class="text-2xl font-serif font-black tracking-tighter hover:text-gold transition-colors">
+            <a href="index.html" class="text-2xl font-serif font-black tracking-tighter hover:text-gold transition-colors text-white">
                 M/H <span class="hidden sm:inline ml-2 text-sm font-sans font-normal tracking-widest uppercase opacity-60">Filmmaking</span>
             </a>
 
             <!-- Desktop Nav -->
             <nav class="hidden lg:flex items-center space-x-12">
                 <div class="relative group">
-                    <button class="nav-link flex items-center gap-2">Home <i class="fas fa-chevron-down text-[10px]"></i></button>
-                    <div class="absolute top-full left-0 mt-4 w-48 bg-white dark:bg-surface border border-dark/10 dark:border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 p-2 shadow-2xl rounded-lg overflow-hidden">
-                        <a href="index.html" class="block px-4 py-2 text-xs uppercase tracking-widest hover:text-gold hover:bg-dark/5 dark:hover:bg-white/5 transition-colors">Cinematic Home</a>
-                        <a href="home-2.html" class="block px-4 py-2 text-xs uppercase tracking-widest hover:text-gold hover:bg-dark/5 dark:hover:bg-white/5 transition-colors">Editorial Home</a>
+                    <button class="nav-link flex items-center gap-2 text-white/80">Home <i class="fas fa-chevron-down text-[10px]"></i></button>
+                    <div class="absolute top-full left-0 mt-4 w-48 bg-dark border border-white/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 p-2 shadow-2xl rounded-lg overflow-hidden">
+                        <a href="index.html" class="block px-4 py-2 text-xs uppercase tracking-widest text-white/60 hover:text-gold hover:bg-white/5 transition-colors">Cinematic Home</a>
+                        <a href="home-2.html" class="block px-4 py-2 text-xs uppercase tracking-widest text-white/60 hover:text-gold hover:bg-white/5 transition-colors">Editorial Home</a>
                     </div>
                 </div>
-                <a href="about.html" class="nav-link">About</a>
-                <a href="portfolio.html" class="nav-link">Portfolio</a>
-                <a href="gallery.html" class="nav-link">Gallery</a>
-                <a href="tools.html" class="nav-link">Tools</a>
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="about.html" class="nav-link text-white/80">About</a>
+                <a href="portfolio.html" class="nav-link text-white/80">Portfolio</a>
+                <a href="gallery.html" class="nav-link text-white/80">Gallery</a>
+                <a href="tools.html" class="nav-link text-white/80">Tools</a>
+                <a href="services.html" class="nav-link text-white/80">Services</a>
+                <a href="contact.html" class="nav-link text-white/80">Contact</a>
             </nav>
 
             <!-- Actions -->
             <div class="flex items-center gap-6">
                 <!-- RTL Toggle -->
-                <button id="rtl-toggle" class="hover:text-gold transition-colors text-sm font-mono" title="Toggle RTL">RTL</button>
-                <!-- Dark Mode -->
-                <button id="theme-toggle" class="hover:text-gold transition-colors w-10 h-10 flex items-center justify-center border border-dark/10 dark:border-white/10 rounded-full hover:bg-yellow-500/10">
-                    <i class="fas fa-moon"></i>
-                </button>
+                <button id="rtl-toggle" class="hover:text-gold transition-colors text-sm font-mono text-white/40" title="Toggle RTL">RTL</button>
                 <!-- Mobile Menu Toggle -->
-                <button id="mobile-toggle" class="lg:hidden hover:text-gold text-2xl">
+                <button id="mobile-toggle" class="lg:hidden hover:text-gold text-2xl text-white/80">
                     <i class="fas fa-bars-staggered"></i>
                 </button>
             </div>
@@ -75,7 +70,7 @@
         <button id="mobile-close" class="absolute top-8 right-8 text-3xl text-white/60 hover:text-gold transition-colors">
             <i class="fas fa-times"></i>
         </button>
-        <div class="flex flex-col items-center space-y-8 text-center">
+        <div class="flex flex-col items-center space-y-8 text-center text-white/60">
             <a href="index.html" class="text-4xl font-serif hover:text-gold">Home</a>
             <a href="about.html" class="text-4xl font-serif hover:text-gold">About</a>
             <a href="portfolio.html" class="text-4xl font-serif hover:text-gold">Portfolio</a>
@@ -87,53 +82,71 @@
     </div>
 
     <!-- Main Content -->
-    <main class="min-h-screen flex items-center justify-center relative overflow-hidden pt-32 pb-24">
-        <!-- Background Content -->
+    <main class="min-h-screen flex items-center justify-center relative overflow-hidden px-6">
+        <!-- Background: Cinematic Noir -->
         <div class="absolute inset-0 z-0">
-            <img src="../assets/images/camera-lens.jpg" class="w-full h-full object-cover grayscale opacity-10 scale-110" alt="Camera Lens">
-            <div class="absolute inset-0 bg-gradient-to-b from-dark via-transparent to-dark"></div>
+            <div class="absolute inset-0 bg-dark"></div>
+            <div class="absolute inset-0 opacity-20 bg-[url('../assets/images/cinematic-backdrop.jpg')] bg-cover bg-center grayscale mix-blend-overlay scale-110"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-dark via-transparent to-dark"></div>
         </div>
 
-        <!-- 404 Visual -->
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-            <h1 class="text-[20rem] md:text-[40rem] font-black font-serif text-black dark:text-white/[0.02]">404</h1>
+        <!-- 404 Ambient Text -->
+        <div class="absolute inset-0 flex items-center justify-center opacity-[0.03] select-none pointer-events-none">
+            <span class="text-[30vw] font-serif font-black italic tracking-tighter leading-none">Lost</span>
         </div>
 
-        <div class="relative z-10 text-center px-6 max-w-2xl reveal-up">
-            <div class="w-20 h-20 border border-gold/20 flex items-center justify-center mx-auto mb-12">
-                <i class="fas fa-film text-3xl text-gold/40"></i>
+        <div class="relative z-10 text-center max-w-3xl reveal-up">
+            <!-- Poetic Header -->
+            <div class="mb-16 space-y-6">
+                <span class="font-mono text-gold text-[10px] uppercase tracking-[0.8em] inline-block animate-pulse">Error Code 404</span>
+                <h2 class="text-6xl md:text-9xl font-serif font-bold italic tracking-tight text-white leading-none">
+                    The Scene <br> 
+                    <span class="text-gold/80 italic underline decoration-gold/20 underline-offset-[20px]">is Missing.</span>
+                </h2>
             </div>
-            <h2 class="text-5xl md:text-7xl font-black font-serif italic mb-8 leading-tight text-dark dark:text-bone">Scene Not Found.</h2>
-            <p class="text-dark dark:text-bone/40 text-lg md:text-xl font-light mb-16 leading-relaxed">
-                The reel you're looking for seems to have been lost in the editing room. This page doesn't exist in our current vision.
+            
+            <p class="text-white/40 text-lg md:text-xl font-light mb-20 max-w-xl mx-auto leading-relaxed font-serif italic">
+                The frames you seek have been cut from the final edit. <br> 
+                The reel is empty, but the vision lives on.
             </p>
             
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <a href="index.html" class="w-full sm:w-auto px-12 py-5 bg-gold text-dark focus:text-dark group-hover:text-dark font-black uppercase tracking-[0.3em] text-[10px] hover:bg-bone transition-all duration-500 shadow-2xl overflow-hidden group relative">
-                    <span class="relative z-10">Return to Premiere</span>
-                    <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+            <!-- Minimal Actions -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-12 group">
+                <a href="index.html" class="flex items-center gap-6 group">
+                    <div class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-gold group-hover:border-gold transition-all duration-700 shadow-xl group-hover:text-dark">
+                        <i class="fas fa-home text-sm"></i>
+                    </div>
+                    <div class="text-left">
+                        <span class="block text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-1">Return To</span>
+                        <span class="block text-sm font-serif font-bold text-white group-hover:text-gold transition-colors">The Premiere</span>
+                    </div>
                 </a>
-                <a href="portfolio.html" class="w-full sm:w-auto px-12 py-5 border border-dark/10 dark:border-white/10 text-dark dark:text-bone/60 hover:text-gold hover:border-gold/50 font-mono text-[10px] uppercase tracking-widest transition-all duration-500">
-                    Browse Archive
+
+                <div class="hidden sm:block h-12 w-px bg-white/10"></div>
+
+                <a href="portfolio.html" class="flex items-center gap-6 group text-right sm:text-left">
+                    <div class="text-right">
+                        <span class="block text-[10px] font-mono uppercase tracking-[0.4em] text-white/40 mb-1">Discover More</span>
+                        <span class="block text-sm font-serif font-bold text-white group-hover:text-gold transition-colors">The Archive</span>
+                    </div>
+                    <div class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white/5 transition-all duration-700 shadow-xl">
+                        <i class="fas fa-arrow-right text-sm -rotate-45 group-hover:rotate-0 transition-transform"></i>
+                    </div>
                 </a>
             </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-20">
+            <span class="text-[10px] font-mono uppercase tracking-[0.5em] rotate-90 mb-8 mt-8">Scroll</span>
+            <div class="w-px h-16 bg-gradient-to-b from-white to-transparent"></div>
         </div>
     </main>
 
     <!-- Footer -->
     <footer class="bg-bone dark:bg-dark/80 backdrop-blur-xl pt-32 pb-12 border-t border-dark/5 dark:border-white/5 reveal-up">
         <div class="container mx-auto px-6">
-            <!-- Call to Action -->
-            <div class="flex flex-col md:flex-row items-end justify-between gap-12 mb-32">
-                <div class="max-w-2xl text-left">
-                    <p class="font-mono text-gold text-xs uppercase tracking-[0.4em] mb-8">Next Project</p>
-                    <h2 class="text-6xl md:text-8xl font-serif italic font-black leading-tight text-dark dark:text-bone text-left">Let's build a vision <br> together.</h2>
-                </div>
-                <a href="contact.html" class="group relative px-12 py-6 bg-gold text-dark focus:text-dark group-hover:text-dark font-black uppercase tracking-[0.3em] text-[10px] hover:bg-bone transition-all duration-500 shadow-2xl overflow-hidden">
-                    <span class="relative z-10">Start a Project</span>
-                    <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
-                </a>
-            </div>
+            
 
             <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-16 mb-24 pt-24 border-t border-dark/5 dark:border-white/5">
                 <div class="col-span-1 md:col-span-2 lg:col-span-2 space-y-8 text-left">
