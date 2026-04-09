@@ -8,11 +8,11 @@ body.light-mode {
   --color-bg: #fcfaf7; /* Bone/Off-white */
   --color-surface: #ffffff;
   --color-surface-alt: #f5f2ee;
-  --color-primary: #B08B1C; /* Brighter, More Vibrant Gold */
-  --color-primary-dark: #8c6e16;
-  --color-accent-rgb: 176 139 28;
-  --color-gold: #B08B1C;
-  --color-gold-rgb: 176 139 28;
+  --color-primary: #E8C547;
+  --color-primary-dark: #c4a230;
+  --color-accent-rgb: 232, 197, 71;
+  --color-gold: #E8C547;
+  --color-gold-rgb: 232 197 71;
   --color-text: #1a1a1a;
   --color-text-muted: #666666;
   --color-border: #e5e5e5;
@@ -75,6 +75,15 @@ body.light-mode .glass-header i,
 body.light-mode .glass-header button,
 body.light-mode .glass-header a {
     color: #f5f5f5 !important;
+}
+
+body.light-mode .glass-header .nav-link.active,
+body.light-mode .glass-header .nav-link.active:hover {
+  color: var(--color-primary) !important;
+}
+
+body.light-mode .service-checklist {
+  color: rgba(26, 26, 26, 0.72);
 }
 
 body.light-mode .nav-dropdown a:hover,

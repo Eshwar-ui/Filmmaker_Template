@@ -14,8 +14,8 @@
 
   /* Typography */
   --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'DM Sans', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'Inter', system-ui, sans-serif;
 
   /* Spacing (8px base grid) */
   --space-xs: clamp(4px, 1vw, 8px);
@@ -155,6 +155,41 @@ ul, ol {
 .text-muted { color: var(--color-text-muted); }
 .font-mono { font-family: var(--font-mono); }
 
+.site-logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  transition: color var(--transition-base);
+}
+
+.site-logo__tagline {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.site-logo__tagline.hidden {
+  display: inline !important;
+}
+
+@media (max-width: 640px) {
+  .glass-header .site-logo {
+    gap: 0.32rem;
+  }
+
+  .glass-header .site-logo__tagline {
+    font-size: 0.46rem;
+    letter-spacing: 0.16em;
+    opacity: 0.72;
+  }
+}
+
 /* Keep anchor targets visible below fixed navbar */
 #tools {
   scroll-margin-top: 110px;
@@ -201,13 +236,13 @@ ul, ol {
 /* Hover & Active States */
 .glass-header .nav-link:hover,
 .glass-header .nav-link.active {
-    color: #E8C547 !important;
+    color: var(--color-primary) !important;
 }
 
 #theme-toggle:hover,
 #rtl-toggle:hover,
 #mobile-toggle:hover {
-    color: #E8C547 !important;
+    color: var(--color-primary) !important;
 }
 
 /* Scrolled State */
@@ -241,23 +276,38 @@ ul, ol {
   font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
-  padding: 4px 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-header .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
+  bottom: 4px;
+  left: 14px;
+  right: 14px;
   height: 2px;
-  background: var(--color-gold);
-  transition: width 0.3s ease;
+  background: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.3s ease;
 }
 
 .glass-header .nav-link:hover::after,
 .glass-header .nav-link.active::after {
-  width: 100%;
+  transform: scaleX(1);
+}
+
+.glass-header .nav-link:hover {
+  background: rgba(var(--color-accent-rgb), 0.08);
+}
+
+.glass-header .nav-link.active {
+  background: transparent;
+  box-shadow: none;
+  font-weight: 700;
 }
 
 /* Keep desktop nav ordering independent from page text direction */
@@ -437,7 +487,9 @@ ul, ol {
 /* ==============================================
    COMPONENT: Buttons
    ============================================== */
-.btn {
+.btn,
+.btn-primary,
+.btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -481,6 +533,70 @@ ul, ol {
   color: var(--color-bg);
   transform: translateY(-3px);
   box-shadow: 0 0 20px rgba(var(--color-accent-rgb), 0.3), 0 4px 24px rgba(0,0,0,0.4);
+}
+
+.service-checklist {
+  display: grid;
+  gap: 0.9rem;
+  color: rgba(240, 237, 232, 0.72);
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1vw + 0.82rem, 1.25rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+.service-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  line-height: 1.55;
+}
+
+.service-checklist li i {
+  flex-shrink: 0;
+  margin-top: 0.28rem;
+}
+
+.service-cta-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.service-cta-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 999px;
+  background: rgba(var(--color-accent-rgb), 0.08);
+}
+
+.service-cta-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  width: 100%;
+}
+
+.service-cta-copy p {
+  max-width: 22rem;
+}
+
+.service-cta-button {
+  width: 100%;
+  margin-top: auto;
+}
+
+.service-cta-button i {
+  font-size: 0.85rem;
+  line-height: 1;
 }
 
 .btn-sm {

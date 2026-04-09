@@ -9,7 +9,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -53,8 +53,8 @@
     <!-- Navigation (From Home 1) -->
     <header class="glass-header dark sticky top-0" id="navbar">
         <div class="container mx-auto px-4 sm:px-6 flex items-center justify-between">
-            <a href="index.html" class="text-xl sm:text-2xl font-serif font-black tracking-tighter hover:text-gold transition-colors text-white">
-                M/H <span class="hidden sm:inline ml-2 text-sm font-sans font-normal tracking-widest uppercase opacity-60">Filmmaking</span>
+            <a href="index.html" class="site-logo text-xl sm:text-2xl hover:text-gold text-white">
+                M/H <span class="site-logo__tagline hidden sm:inline">Filmmaking</span>
             </a>
             <!-- Desktop Nav -->
             <nav class="hidden lg:flex items-center space-x-10">
@@ -95,6 +95,9 @@
             <i class="fas fa-times"></i>
         </button>
         <div class="flex flex-col items-center space-y-8 text-center text-white/60">
+            <a href="index.html" class="site-logo text-2xl sm:text-3xl hover:text-gold text-white">
+                M/H <span class="site-logo__tagline hidden sm:inline">Filmmaking</span>
+            </a>
             <!-- Home with Dropdown -->
             <div class="mobile-nav-item flex flex-col items-center">
                 <button class="mobile-submenu-toggle text-4xl font-serif text-gold font-bold flex items-center gap-4">
@@ -268,7 +271,9 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-24 pt-24 border-t border-dark/5 dark:border-white/5">
                 <div class="space-y-8">
-                    <a href="index.html" class="text-3xl font-serif font-black tracking-tighter text-dark dark:text-bone hover:text-gold transition-colors">M/H</a>
+                    <a href="index.html" class="site-logo text-3xl text-dark dark:text-bone hover:text-gold">
+                        M/H <span class="site-logo__tagline hidden sm:inline">Filmmaking</span>
+                    </a>
                     <p class="text-dark dark:text-bone/40 max-w-xs leading-relaxed font-light text-base italic">
                         Capturing the raw essence of human stories across the globe.
                     </p>
